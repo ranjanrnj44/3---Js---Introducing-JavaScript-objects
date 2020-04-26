@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>OOJS: Task 3</title>
+    <style>
+        p {
+            color: purple;
+            margin: 0.5em 0;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body>
+
+    <section class="preview">
+
+
+
+    </section>
+
+</body>
+<script>
+    class Shape {
+        constructor(name, sides, sideLength) {
+            //below 3 are properties
+            this.name = name;
+            this.sides = sides;
+            this.sideLength = sideLength;
+
+            //method
+            this.calcPerimeter = function() {
+                let peri = this.sides * this.sideLength;
+                console.log(peri);
+            }
+        };
+    }
+    //create a class(square - child)that extends from (Shape - parent)
+    class Square extends Shape {
+        constructor(sideLength) {
+                super("square", 4, sideLength);
+            }
+            //create a method calcArea() & calcPerimeter()
+        calcArea() {
+            return (this.sideLength * this.sideLength);
+        }
+        calcPerimeter() {
+            return (this.sides * this.sideLength);
+        }
+    }
+    //create a class(square - child)that extends from (Shape - parent)
+    class Triangle extends Shape {
+        constructor(sideLength) {
+                super("Triangle", 3, sideLength);
+            }
+            //create method calcArea() & calcPerimeter()
+        calcArea() {
+            return (this.sideLength * this.sideLength);
+        }
+        calcPerimeter() {
+            return (this.sides * this.sideLength);
+        }
+    }
+
+
+    //pass only sides - SQUARE
+    let square = new Square(5);
+    console.log(square.name);
+    console.log(square.sides);
+    console.log(square.calcArea());
+    console.log(square.calcPerimeter());
+
+    //pass only sides - TRIANGLE
+    let triangle = new Triangle(3);
+    console.log(triangle.name);
+    console.log(triangle.sides);
+    console.log(triangle.calcArea());
+    console.log(triangle.calcPerimeter());
+</script>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <script>
+        // let Book = new Object();
+        // console.log(Book);
+
+        // //properties
+        // Book.name = "Ravana kaviyam";
+        // Book.price = 300;
+        // Book.author = "un-named";
+
+        // //method
+        // Book.detail = function() {
+        //     return (`There is a book named ${this.name}, it's really a good one, cost only ${this.price}`);
+        // }
+
+        // //log it
+        // Book.name;
+        // Book.price
+        // Book.author;
+        // Book.detail();
+
+
+        let person = {
+            name: "Ravanan",
+            place: "Salem",
+            hobby: ["coding", "playing"],
+            interest: ["cricket", "swim", "roaming"],
+            color: {
+                hair: "black",
+                eye: "blue"
+            },
+            //we can write multi-word, but should use (" ") & to call it, we must use []
+            "full name": "Ravana Chakravarthi - 1702",
+            //method
+            info: function() {
+                return (`King ${this.name.toLocaleUpperCase()} is great`);
+            }
+        }
+
+        //calling function
+        console.log(person.name);
+        console.log(person.info());
+
+        //calling the multi-word, MAKE SURE it should be [], DON'T USE (DOT => .)
+        console.log(person["full name"]);
+    </script>
+</body>
+
+</html>

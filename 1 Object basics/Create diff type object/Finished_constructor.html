@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Object-oriented JavaScript example</title>
+</head>
+
+<body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+
+</body>
+
+<script>
+    // //const person = {}; //this is object, and it is empty.
+    // //console.log(person.toString());
+
+    // const human = {
+    //     name: "Ranjan",
+    //     place: "Salem",
+    //     age: 24,
+    //     color: {
+    //         hair: "black",
+    //         skin: "brown"
+    //     },
+    //     interest: ["cricket", "swimming", "roaming"],
+    //     full_name: ["ranjan", "42"],
+    //     bio: function() {
+    //         return (`Hi I'am ${this.name} , I come from ${this.place}`);
+    //     },
+    //     greet: function() {
+    //         return (`Hello ${this.name}`);
+    //     }
+    // }
+
+    // //invoking or calling the object
+    // console.log(human.name);
+
+    // console.log(human.place);
+
+    // console.log(human.age);
+
+    // console.log(human.color.hair);
+
+    // console.log(human.interest[0]);
+    // console.log(human.interest[1]);
+    // console.log(human.interest[2]);
+
+    // console.log(human.full_name[0]);
+    // console.log(human.full_name[1]);
+
+    // console.log(human.bio());
+
+    // console.log(human.greet());
+
+    // //try update the object value for color
+    // human["color"]["hair"] = "brown";
+    // console.log(human["color"]["hair"]);
+
+    // //add a new property to object
+    // human["eyes"] = "black";
+    // console.log(human["eyes"]);
+
+    // //add a new method to object
+    // human.wish = function() {
+    //     return `Good Morning ${human["name"]}`;
+    // }
+    // console.log(human.wish());
+
+    // //this is a way of getting dynamic
+    // //NOTE : It is not only we can set values, but also members too.
+    // let x = "height";
+    // let y = "9.5";
+    // human[x] = y;
+
+    // //we can't access these by (.) try below code we'll get error, but it can be solved by bracket notation => [], CHECK BELOW LINE : 79,80
+    // //console.log(human.x);
+
+    // console.log(human[x]); //NOTE: It can be called by direct (x) var name / or / the value itself "height";
+    // console.log(human["height"]);
+
+
+
+
+
+    //this is a constructor function, a blue print
+    function Person(first, last, age, gender, interests) {
+        this.name = {
+            first: first,
+            last: last
+        };
+        this.age = age;
+        this.gender = gender;
+        this.interests = interests;
+        this.bio = function() {
+            alert(this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+        };
+        this.greeting = function() {
+            alert('Hi! I\'m ' + this.name.first + '.');
+        };
+    }
+    //create objects from the above blueprint, instantiated one
+    let person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing']);
+</script>
+
+</html>

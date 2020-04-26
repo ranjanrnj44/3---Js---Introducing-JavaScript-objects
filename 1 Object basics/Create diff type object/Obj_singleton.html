@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <script>
+        // let Book = new Object();
+        // console.log(Book);
+
+        // //properties
+        // Book.name = "Ravana kaviyam";
+        // Book.price = 300;
+        // Book.author = "un-named";
+
+        // //method
+        // Book.detail = function() {
+        //     return (`There is a book named ${this.name}, it's really a good one, cost only ${this.price}`);
+        // }
+
+        // //log it
+        // Book.name;
+        // Book.price
+        // Book.author;
+        // Book.detail();
+
+
+
+
+
+        // let person = {
+        //     name: "Ravanan",
+        //     place: "Salem",
+        //     hobby: ["coding", "playing"],
+        //     interest: ["cricket", "swim", "roaming"],
+        //     color: {
+        //         hair: "black",
+        //         eye: "blue"
+        //     },
+        //     //we can write multi-word, but should use (" ") & to call it, we must use []
+        //     "full name": "Ravana Chakravarthi - 1702",
+        //     //method
+        //     info: function() {
+        //         return (`King ${this.name.toLocaleUpperCase()} is great`);
+        //     }
+        // }
+
+        // //calling function
+        // console.log(person.name);
+        // console.log(person.info());
+
+        // //calling the multi-word, MAKE SURE it should be [], DON'T USE (DOT => .)
+        // console.log(person["full name"]);
+
+
+
+
+
+        // function Car(name, price, color, model) { //here Car() act as an constructor by which we can build properties and methods
+        //     //properties
+        //     this.name = name;
+        //     this.price = price;
+        //     this.color = color;
+        //     this.model = model;
+
+        //     //method [CALLING EXTERNAL FUNCTION]
+        //     this.details = get_detail; // remember that we need not use () for calling external function, only name is enough
+        // }
+
+        // //external function
+        // function get_detail() {
+        //     return (`I like the ${this.color} color ${this.name}.`);
+        // }
+
+        // //create objects & calling them
+        // var car1 = new Car("Lamborghini", 300, "black", "Aventador");
+        // console.log(car1);
+
+        // //NOTE :  we can DELETE, UPDATE, CREATE object & it's properties/methods
+
+
+
+
+
+        let Person = new function(name, age, place) {
+            this.name = name;
+            this.age = age;
+            this.place = place;
+            this.detail = function() {
+                return (`I'm ${this.name} , I come from ${this.place}`);
+            }
+        }
+        console.log(Person);
+    </script>
+</body>
+
+</html>
