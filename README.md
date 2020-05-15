@@ -1,2 +1,2 @@
-# 3---Js---Introducing-JavaScript-objects
+# 3-Js-Introducing-JavaScript-objects
 Weorking on all exericise
