@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <script>
+        //Normal for loop
+        let arr = [12, 13, 14, 15, 16];
+        for (let i = 0; i < arr.length; i++) {
+            console.log("For loop only i, printing index value : " + i + " for loop printing it's values : " + arr[i]);
+        }
+
+        //ES5
+        /*using forEach, it iterate/loop through all the elements in the array and change 
+          it's original values*/
+        let arra = [2, 4, 3, 6, 5];
+        arra.map(function(item) {
+            console.log(item * item);
+        });
+
+        //ES6, 5 will print, changes original value
+        arra.forEach((item, index) => {
+            console.log(5);
+        });
+
+        //printing index alone
+        arra.forEach((item, index) => {
+            console.log(index);
+        });
+
+        //printing key-value pair
+        arra.forEach((item, index) => {
+            console.log(`Key is : ${item} --- index is ${index}`);
+        });
+
+        //using thi argument
+        let arry = [33, 44, 55, 66];
+        let person = {
+            name: "jan",
+            place: "salem",
+            age: 24
+        };
+        arry.map((value, index, array) => {
+            console.log(`The value is : ${value} --- it's THIS VALUE IS = ${person.name}`);
+        }, {
+            name: "zebra",
+            place: "africa",
+            active: 1
+        });
+    </script>
+</body>
+
+</html>

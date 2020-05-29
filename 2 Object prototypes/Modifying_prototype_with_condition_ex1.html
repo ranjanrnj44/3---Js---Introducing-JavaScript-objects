@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Object-oriented JavaScript example</title>
+</head>
+
+<body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+
+</body>
+
+<script>
+    //this is a constructor function, a blue print
+    function Person(first, last, age, gender, interests) {
+        this.name = {
+            first: first,
+            last: last
+        };
+        this.age = age;
+        this.gender = gender;
+        this.interests = interests;
+        this.bio = function() {
+            //store the sentence in a variable to concatenate along with gender after (else)
+            let store_statement = this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old';
+            let he_or_she;
+
+            if (this.gender === "male" || this.gender === "Male" || this.gender === "MALE" || this.gender === "m" || this.gender === "M") {
+                he_or_she = ", He likes";
+            } else if (this.gender === "female" || this.gender === "Female" || this.gender === "FEMALE" || this.gender === "f" || this.gender === "F") {
+                he_or_she = ", She likes";
+            } else {
+                he_or_she = ", They likes";
+            }
+
+            //add the strings by concatenation
+            store_statement += he_or_she;
+
+            //for array length define a loop statement and find length, accordingly add , or . at end of it
+            if (this.interests.length === 1) {
+                store_statement += " " + this.interests[0] + ".";
+            } else if (this.interests.length === 2) {
+                store_statement += " " + this.interests[0] + " and " + this.interests[1] + ".";
+            } else {
+                for (let i = 0; i < this.interests.length; i++) {
+                    if (i === this.interests.length - 1) {
+                        store_statement += " and " + this.interests[i] + ".";
+                    } else {
+                        store_statement += " " + this.interests[i] + ",";
+                    }
+                }
+            }
+
+            alert(`${store_statement}`);
+
+        };
+
+        this.greeting = function() {
+            alert('Hi! I\'m ' + this.name.first + '.');
+        };
+    };
+
+    //create a prototype and it should always be outside the function
+    Person.prototype.farewell = function() {
+        alert(`${this.name.first} has left the building`);
+    };
+
+    //THIS RETURNS UNDEFINED, CAUSE this is not function scope so the exe context is set to global object, if it is written inside function it will work
+    Person.prototype.fullName = this.name.first + ' ' + this.name.last;
+
+
+
+    //create objects from the above blueprint, instantiated one
+    let person1 = new Person('Ranjan', 'Rnj', 24, 'male', ['cricket', 'swimming', 'roaming']);
+    person1.bio();
+    person1.farewell();
+
+    person1.fullName; // will return undefined.
+</script>
+
+</html>

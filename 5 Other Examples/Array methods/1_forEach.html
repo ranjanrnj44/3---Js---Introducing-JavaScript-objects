@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <script>
+        //Normal for loop
+        let arr = [12, 13, 14, 15, 16];
+        for (let i = 0; i < arr.length; i++) {
+            console.log("For loop only i, printing index value : " + i + " for loop printing it's values : " + arr[i]);
+        }
+
+        //ES5
+        /*using forEach, it iterate/loop through all the elements in the array and doesn't change 
+          it's original values, but it's callback does*/
+        let arra = [9, 8, 7, 6, 5];
+        arra.forEach(function(x) {
+            console.log(x);
+        });
+
+        //ES6
+        arra.forEach(y => console.log(y));
+
+        //with idex,array,item
+        arra.forEach((item, index, array) => {
+            console.log(`Item : ${item} , index : ${index} and array : ${array}`);
+        });
+
+        //for visited/ already present element the forEach will skip on iteration
+        let vals = ["a", "b", "e", "d"];
+        vals.forEach(item => {
+            console.log(item);
+            if (item === "b") {
+                vals.shift();
+            }
+        });
+    </script>
+</body>
+
+</html>

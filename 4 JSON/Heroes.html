@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Our superheroes</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+    </header>
+
+    <section>
+
+    </section>
+
+    <script>
+        const header = document.querySelector('header');
+        const section = document.querySelector('section');
+
+        //request part to server
+        let requestedURL = "./jfile.json";
+        let request = new XMLHttpRequest();
+        request.open("GET", requestedURL);
+        request.responseType = "json";
+        request.send();
+
+        //response part from server
+        request.onload = function() {
+            const myresponse = request.response;
+            headerpart(myresponse); // we are passing the response to a function as parameter and writing it below
+            sectionpart(myresponse);
+        }
+
+        //writing the data getting from server(response) >> HEADER PART
+        function headerpart(resp) {
+            const h1 = document.createElement("h1");
+            h1.textContent = resp["squadName"];
+            header.appendChild(h1);
+
+
+            const para0 = document.createElement("p");
+            para0.textContent = `${resp["homeTown"]} : ${resp["secretBase"]} Formed in ${resp["formed"]}`;
+            header.appendChild(para0);
+
+            const para1 = document.createElement("p");
+            para1.textContent = resp["active"];
+            para1.style.fontSize = "20px";
+            para1.style.color = "green";
+            header.appendChild(para1);
+        }
+
+        //writing the data getting from server(response) >> SECTION PART
+        function sectionpart(resp) {
+            let hero = resp["members"];
+
+            for (let i = 0; i < hero.length; i++) {
+                let h2 = document.createElement("h2");
+                let p1 = document.createElement("p");
+                let p2 = document.createElement("p");
+                let list_ul = document.createElement("ul");
+                let article = document.createElement("article");
+
+                //let pow = hero[i].powers;
+                for (let j = 0; j < hero[i].powers.length; j++) {
+                    let list_li = document.createElement("li");
+                    list_li.textContent = hero[i].powers[j];
+                    list_ul.appendChild(list_li);
+                }
+
+                h2.textContent = hero[i].name;
+                p1.textContent = `Age : ${hero[i].age}`;
+                p2.textContent = `Secret Identity : ${hero[i].secretIdentity}`;
+
+                article.appendChild(h2);
+                article.appendChild(p1);
+                article.appendChild(p2);
+                article.appendChild(list_ul);
+
+                section.appendChild(article);
+            }
+        }
+    </script>
+</body>
+
+</html>

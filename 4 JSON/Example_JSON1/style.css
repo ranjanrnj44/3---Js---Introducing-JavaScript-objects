@@ -1,0 +1,10 @@
+/* || general styles */
+
+html {
+    font-family: 'helvetica neue', helvetica, arial, sans-serif;
+}
+
+body {
+    width: 900px;
+    margin: 0 auto;
+}

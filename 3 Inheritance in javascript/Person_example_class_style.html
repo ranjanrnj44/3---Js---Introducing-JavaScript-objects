@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <script>
+        // creating the prototypical inheritance in class style
+        class Person {
+            constructor(first, last, age, gender, interests) {
+                this.name = {
+                        first: first,
+                        last: last
+                    },
+                    this.age = age,
+                    this.gender = gender,
+                    this.interests = interests
+            };
+
+            //methods
+            greeting() {
+                return (`Hi ${this.name.first}, have a nice day`);
+            };
+
+            farewell() {
+                return (`${this.name.first} have left the building after the party is over`);
+            };
+        }
+
+        //let's test
+        let han = new Person('Han', 'Solo', 25, 'male', ['Smuggling']);
+        console.log(han.greeting());
+
+        let leia = new Person('Leia', 'Organa', 19, 'female', ['Government']);
+        console.log(leia.farewell());
+
+        //create a sub class
+        class Teacher extends Person {
+            constructor(first, last, age, gender, interests, subjects, grade) {
+                super(first, last, age, gender, interests);
+                // note : since for any property wanted to change use this._subject = subject, don't forget(this._)
+                this._subjects = subjects;
+                //note : for now we only changing subject,so for that alone this._ not for grade so for this it is normal
+                this.grade = grade;
+            }
+
+            //methods for getting and setting , here setting is for changing prop values at wanted time
+            get subjects() {
+                return this._subjects;
+            }
+            set subjects(newsubject) {
+                this._subjects = newsubject;
+            }
+        }
+
+        //let's create and run
+        let teacher1 = new Teacher("Samu", "Samantha", 24, "Female", ["Acting", "Dancing"], "Science", 7);
+        console.log(teacher1.name.first);
+        console.log(teacher1.interests[1]);
+        console.log(teacher1.subjects);
+        teacher1.subjects = "ComputerScience"; //changing and checking,check line no: 76, 78
+        console.log(teacher1.subjects);
+        console.log(teacher1.greeting());
+        console.log(teacher1.farewell());
+    </script>
+</body>
+
+</html>
