@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <script>
+        // it is used to iterate over the enumerable properties of the objects
+        // used for iterating over the index vals of iterables like ARRAY & STRING
+
+        //NOTE : Don't use for the ARRAY, for getting index it is okay, remember index alone is okay.
+        //NOTE: For iterating over array we have diff array methods
+
+        // iterate over props of an objects
+        let arr = {
+            a: 1,
+            b: 12,
+            c: 3
+        };
+        for (let x in arr) {
+            console.log(`properties : ${x} and we have values = ${arr[x]}`);
+        }
+
+        //iterate over the value and the index of the STRING
+        let arra = "Hi Dev";
+        for (let y in arra) {
+            console.log(`Property : ${y} values are : ${arra[y]}`);
+        }
+
+        //iterating over the own property
+        let tri = {
+            a: 1,
+            b: 2,
+            c: 3
+        };
+
+        function tri_color() {
+            this.color = "red";
+        }
+        tri_color.prototype = tri;
+        console.log(tri_color);
+
+        var z = new tri_color();
+        for (let prop in z) {
+            if (z.hasOwnProperty(prop)) {
+                console.log(`${prop} , ${z[prop]}`);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <div>
+        <ul>
+
+        </ul>
+    </div>
+
+    <script>
+        // Asynchronous callback functions
+        // Asynchronicity means that if JavaScript has to wait for an operation to complete, it will execute the rest of the code while waiting.
+        // Note that JavaScript is a single-threaded programming language. It carries asynchronous operations via the callback queue and event loop.
+
+        //NOT A callback,error one, check in console
+        function download(url) {
+            setTimeout(() => {
+                console.log(`Downloading file ${url}`);
+            }, 3000);
+        }
+
+        function process(pic) {
+            console.log(`Processing the file ${pic}`);
+        }
+        let url = 'https://www.javascripttutorial.net/foo.jg';;
+        //callling
+        download(url);
+        process(url);
+
+
+
+
+
+        //cllback function
+        function download1(url1, callback) {
+            setTimeout(() => {
+                console.log(`Downloading file ${url1}`);
+                callback(url1);
+            }, 3000);
+        }
+
+        function process1(pic1) {
+            console.log(`Processing the file ${pic1}`);
+        }
+        let url1 = 'https://www.javascripttutorial.net/foo.jg';
+        //callling
+        download1(url1, process1);
+
+        //or, it can be given in this way also, instead of function name
+
+        /*
+        download1(url1, function process1(pic1) {
+        console.log(`Processing the file ${pic1}`);
+        }
+        let url1 = 'https://www.javascripttutorial.net/foo.jg';
+        );
+        */
+
+
+
+
+
+        //Handling errors
+        let url2;
+
+        function download2(url2, success, failure) {
+            setTimeout(() => {
+                console.log(`Downloading file ${url2}`);
+                //implement error handling
+                let error = url2.length === 0 || !url2;
+                //call the fail or success function
+                error ? failure(url2) : success(url2);
+            }, 3000);
+        }
+        download2('',
+            function(pic2) {
+                console.log("Downloading is completed...");
+            },
+            function(pic2) {
+                console.log("Error occured, now handling error");
+            }
+        );
+
+
+
+
+
+        //Nesting callbacks or DOOM OF PRYMID, but don't use this callback hell, insead use (PROMISES, or ASYNC/AWAIT)
+        function download3(urls, cback) {
+            setTimeout(() => {
+                // script to download the picture here
+                console.log(`Downloading ${urls} ...`);
+                // process the picture once it is completed
+                cback(urls);
+            }, 3000);
+        }
+
+        const url_a = 'https://www.javascripttutorial.net/pic1.jpg';
+        const url_b = 'https://www.javascripttutorial.net/pic2.jpg';
+        const url_c = 'https://www.javascripttutorial.net/pic3.jpg';
+
+        download3(url_a, function(picture_a) {
+            console.log(`Processing ${picture_a}`);
+            // download the second picture
+            download3(url_b, function(picture_b) {
+                console.log(`Processing ${picture_b}`);
+                // download the third picture
+                download3(url_c, function(picture_c) {
+                    console.log(`Processing ${picture_c}`);
+                });
+            });
+        });
+
+
+
+
+
+        //one more eg
+        let arra = [{
+            title: "Marvel",
+            story: "Ironman"
+        }, {
+            title: "Walt Dishney",
+            story: "Finding NEMO"
+        }];
+        let list = document.querySelector("ul");
+        list.textContent = " ";
+
+        function posting() {
+            setTimeout(() => {
+                let output = "";
+                arra.forEach((item, index, array) => {
+                    output += `<li>${item.title} and ${item.story}</li>`;
+                });
+                document.body.innerHTML = output;
+            }, 3000);
+        }
+
+        function creating(item, callback) {
+            setTimeout(() => {
+                arra.push(item);
+                callback();
+            }, 1000);
+        }
+
+        creating({
+            title: "WB",
+            story: "Harry potter"
+        }, posting);
+    </script>
+</body>
+
+</html>

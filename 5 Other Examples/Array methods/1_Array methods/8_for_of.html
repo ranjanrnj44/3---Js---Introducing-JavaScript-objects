@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <script>
+        // it is used to loop over the iterable over objects (including built-in STARING,ARRAT,MAP,SET,...)
+
+
+        let arr = ["a", "b", "c"];
+        for (let x of arr) {
+            console.log(`${x}`);
+        }
+
+
+
+        // incrementing values
+        let arra = [1, 2, 3];
+        for (let y of arra) {
+            y += 1;
+            console.log(`${y}`);
+        }
+
+
+
+        //on string
+        let str = "Hello";
+        for (let z of str) {
+            console.log(`${z}`);
+        }
+        //on string
+        let my_str = "Script";
+        for (let e of my_str) {
+            console.log(`${e.toUpperCase().repeat(3)}`);
+        }
+
+
+
+        //typed array
+        let a = new Uint8Array([0x00, 0xff]);
+        for (let b of a) {
+            console.log(b);
+        }
+
+
+
+        //on map
+        let item = new Map([
+            ["a", 1],
+            ["b", 2],
+            ["c", 3]
+        ]);
+        for (let c of item) {
+            console.log(`${c}`);
+        }
+        for (let [key, value] of item) {
+            console.log(value);
+        }
+
+
+
+        //iterate over the value and the index of the STRING
+        let arras = "Hi Dev";
+        for (let y in arras) {
+            console.log(`Property : ${y} values are : ${arras[y]}`);
+        }
+
+
+
+        //set - this is for finding duplicates
+        let data = new Set([1, 1, 2, 3, 4, 4, 5, 6]);
+        for (let d of data) {
+            console.log(`${d}`);
+        }
+
+
+
+        //FOR-IN takes PROTOTYPE PROPERTY ALSO, but for-in DON'T
+        //FOR-IN
+        //on string
+        let arr1 = ["a", "b", "c"];
+        arr1.name = "something"
+        for (let f in arr1) {
+            console.log(`${f}`);
+        }
+        //FOR-OF
+        for (let g of arr1) {
+            console.log(g);
+        }
+
+
+
+        // var arrs = [3, 5, 7];
+        // arrs.foo = "hello";
+
+        // for (var i in arrs) {
+        //     console.log(i); // logs "0", "1", "2", "foo"
+        // }
+
+
+
+        // for (var i of arrs) {
+        //     console.log(i); // logs "3", "5", "7"
+        //     // it is does not log "3", "5", "7", "hello"
+        // }
+    </script>
+</body>
+
+</html>
+
+</html>
